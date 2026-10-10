@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CNC-Rechner</title>
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,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">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CNC-Rechner">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#14171a">
+
+<style>
+:root{
+  --bg:#14171a; --panel:#1f242b; --panel-raised:#262c34; --text:#eef1f0;
+  --muted:#8b95a1; --line:#333b44; --amber:#ff8c32; --amber-dim:#5c3d1e;
+  --teal:#34d1a4; --teal-dim:#1c4438; --lcd-bg:#0b0f0d;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:Tahoma,'Segoe UI',system-ui,sans-serif;min-height:100vh;padding:calc(14px + env(safe-area-inset-top,0px)) 12px calc(40px + env(safe-area-inset-bottom,0px));-webkit-tap-highlight-color:transparent;}
+.wrap{max-width:460px;margin:0 auto;}
+header{text-align:center;padding:14px 10px 16px;border-bottom:1px solid var(--line);margin-bottom:14px;position:relative;}
+header .eyebrow{font-family:Consolas,monospace;letter-spacing:2px;font-size:11px;color:var(--amber);}
+header h1{font-size:19px;margin:6px 0 2px;}
+header .sub{font-size:12px;color:var(--muted);}
+.langSwitch{position:absolute;top:0;left:0;display:flex;gap:4px;}
+.langSwitch button{padding:5px 8px;font-size:11px;border-radius:6px;border:1px solid var(--line);background:var(--panel-raised);color:var(--muted);font-family:inherit;}
+.langSwitch button.active{border-color:var(--amber);color:var(--amber);}
+.topTabs{display:flex;flex-wrap:wrap;gap:6px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:5px;margin-bottom:12px;}
+.topTabs button{flex:1 1 30%;min-width:64px;padding:9px 4px;border:none;border-radius:8px;background:transparent;color:var(--muted);font-size:12px;font-weight:bold;font-family:inherit;}
+.topTabs button.active{background:var(--amber);color:#1a1204;}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 14px 16px;margin-bottom:12px;}
+.card .cardTitle{font-size:11px;color:var(--muted);letter-spacing:1px;margin-bottom:10px;}
+label{display:block;font-size:14px;margin-bottom:6px;}
+label .req{color:var(--amber);}
+label .opt{color:var(--muted);font-size:11px;font-weight:normal;}
+select, input[type=number]{width:100%;background:var(--panel-raised);border:1px solid var(--line);color:var(--text);padding:11px 10px;border-radius:8px;font-size:15px;font-family:inherit;margin-bottom:14px;}
+select:focus, input:focus{outline:2px solid var(--amber);}
+.row2{display:flex;gap:10px;}
+.row2 > div{flex:1;}
+.segSwitch{display:flex;gap:8px;margin-bottom:14px;}
+.segSwitch button{flex:1;padding:10px 6px;border-radius:8px;border:1px solid var(--line);background:var(--panel-raised);color:var(--muted);font-family:inherit;font-size:13.5px;}
+.segSwitch button.active{border-color:var(--amber);color:var(--amber);background:var(--amber-dim);}
+.optionalToggle{font-size:12.5px;color:var(--teal);margin-bottom:10px;display:inline-block;cursor:pointer;}
+.dro{background:var(--lcd-bg);border:1px solid var(--line);border-radius:12px;padding:16px 14px;margin-top:6px;}
+.dro .droHead{font-family:Consolas,monospace;font-size:11px;color:var(--muted);letter-spacing:2px;text-align:center;margin-bottom:12px;}
+.droGrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.droCell{background:#0e1310;border:1px solid #202826;border-radius:8px;padding:10px 8px;text-align:center;}
+.droCell .k{font-family:Consolas,monospace;font-size:11px;color:var(--amber);letter-spacing:1px;}
+.droCell .v{font-family:Consolas,monospace;font-size:20px;font-weight:bold;color:#eafff5;margin:4px 0 2px;font-variant-numeric:tabular-nums;}
+.droCell .u{font-size:11px;color:var(--muted);}
+.note{font-size:12px;color:var(--muted);line-height:1.7;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);}
+.note b{color:var(--text);}
+.warnBox{background:var(--amber-dim);border:1px solid var(--amber);border-radius:8px;padding:10px 12px;font-size:13px;margin-bottom:12px;color:#ffd9ae;}
+.resultTable{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px;}
+.resultTable td{padding:6px 4px;border-bottom:1px solid var(--line);}
+.resultTable td.k{color:var(--muted);}
+.resultTable td.v{text-align:right;font-family:Consolas,monospace;color:var(--text);font-weight:bold;}
+.infoCard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center;}
+.infoCard .dev{font-size:17px;font-weight:bold;color:var(--amber);margin-top:10px;}
+.infoCard p{color:var(--muted);font-size:13px;line-height:1.7;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="langSwitch" id="langSwitch">
+    <button data-lang="de">DE</button>
+    <button data-lang="en">EN</button>
+  </div>
+  <div class="eyebrow">CNC MACHINING</div>
+  <h1 id="appTitle">CNC-Rechner</h1>
+  <div class="sub" id="appSub"></div>
+</header>
+<div class="topTabs" id="topTabs"></div>
+<div id="app"></div>
+</div>
+
+<script>
+/* =========================================================
+   DATENQUELLE / DATA SOURCE:
+   Tabellenbuch Metall, Europa-Lehrmittel, Europa-Nr. 10609,
+   ISBN 978-3-7585-1471-5 (S.90-98, 350, 352, 359, 362, 370-373).
+   [INTERNET] = nicht im Buch fotografiert, aus dem Internet
+   ergänzt (DIN 13-1 Kernlochbohrung).
+   Regel: es wird immer der UNTERE Wert eines Bereichs
+   verwendet (nie Mittelwert).
+   ========================================================= */
+const $ = id => document.getElementById(id);
+const low = r => r[0];
+function fmt(n,d){ return (Math.round(n*Math.pow(10,d))/Math.pow(10,d)).toLocaleString('de-DE',{minimumFractionDigits:0,maximumFractionDigits:d}); }
+
+/* ---------------- TRANSLATIONS ---------------- */
+const T = {
+  de: {
+    tabs:{fraesen:'Fräsen',drehen:'Drehen',bohren:'Bohren',passung:'Passung',gewinde:'Gewinde',info:'Info'},
+    sub:'Schnittwerte · Passungen · Gewinde',
+    werkstoff:'Werkstoff', werkzeugmaterial:'Werkzeugmaterial', bearbeitungsart:'Bearbeitungsart',
+    bearbeitung:'Bearbeitung', schruppen:'Schruppen', schlichten:'Schlichten',
+    durchmesser:'Werkzeugdurchmesser D', schneiden:'Anzahl Schneiden z', optionalTitle:'Optional',
+    showOptional:'+ weitere Angaben (optional)',
+    vc:'Schnittgeschwindigkeit vc', n:'Drehzahl n', vf:'Vorschubgeschwindigkeit vf', fz:'Vorschub je Schneide fz',
+    f:'Vorschub f', ap:'Schnitttiefe ap',
+    querplan:'Plandrehen', laengs:'Außendrehen (Längsdrehen)', innen:'Innendrehen', einstech:'Einstech-/Abstechdrehen', gewindedrehen:'Gewindedrehen',
+    eckplan:'Eck-/Planfräsen 90°', planallg:'Planfräsen allgemein', walzenstirn:'Walzenstirnfräsen', kontur:'Konturfräsen (Schaftfräser)',
+    werkstueckDurchmesser:'Werkstückdurchmesser D',
+    bohrverfahren:'Bohrverfahren', spiral:'Spiralbohren', anbohren:'Anbohren/Senken (NC)', tiefloch:'Tieflochbohren', reiben:'Reiben', kegelsenken:'Kegelsenken',
+    bohrerDurchmesser:'Bohrerdurchmesser D',
+    nennmass:'Nennmaß', toleranzbuchstabe:'Toleranzbuchstabe', itstufe:'IT-Stufe', typ:'Typ', bohrung:'Bohrung', welle:'Welle',
+    unteresAbmass:'Unteres Abmaß', oberesAbmass:'Oberes Abmaß', mindestmass:'Mindestmaß', hoechstmass:'Höchstmaß', toleranz:'Toleranz',
+    gewindegroesse:'Gewindegröße', kernloch:'Kernlochbohrung', regelgewinde:'Regelgewinde (DIN 13-1)',
+    required:'*', notSupported:'Nicht unterstützt — keine Quelle vorhanden.',
+    outOfRange:'Außerhalb des unterstützten Bereichs (bis 500 mm).',
+    infoTitle:'Über diese App', infoDev:'Entwickelt von', infoText:'Dieser CNC-Rechner berechnet Schnittwerte für Fräsen, Drehen und Bohren, Kernlochbohrungen für Gewinde sowie ISO-Passungen und Toleranzen, basierend auf dem Tabellenbuch Metall (Europa-Lehrmittel).',
+    dataSource:'Datenquelle',
+  },
+  en: {
+    tabs:{fraesen:'Milling',drehen:'Turning',bohren:'Drilling',passung:'Fits',gewinde:'Thread',info:'Info'},
+    sub:'Cutting Data · Fits · Thread',
+    werkstoff:'Workpiece Material', werkzeugmaterial:'Tool Material', bearbeitungsart:'Machining Operation',
+    bearbeitung:'Machining Mode', schruppen:'Roughing', schlichten:'Finishing',
+    durchmesser:'Tool Diameter D', schneiden:'Number of Teeth z', optionalTitle:'Optional',
+    showOptional:'+ more inputs (optional)',
+    vc:'Cutting Speed vc', n:'Spindle Speed n', vf:'Feed Rate vf', fz:'Feed per Tooth fz',
+    f:'Feed f', ap:'Depth of Cut ap',
+    querplan:'Facing', laengs:'Turning (OD/Longitudinal)', innen:'Boring (Internal Turning)', einstech:'Grooving/Parting', gewindedrehen:'Thread Turning',
+    eckplan:'Corner/Face Milling 90°', planallg:'Face Milling (general)', walzenstirn:'Slab/Peripheral Milling', kontur:'Contour Milling (End Mill)',
+    werkstueckDurchmesser:'Workpiece Diameter D',
+    bohrverfahren:'Drilling Method', spiral:'Twist Drilling', anbohren:'Spot Drilling/Countersinking (NC)', tiefloch:'Deep Hole Drilling', reiben:'Reaming', kegelsenken:'Countersinking (Cone)',
+    bohrerDurchmesser:'Drill Diameter D',
+    nennmass:'Nominal Size', toleranzbuchstabe:'Tolerance Class Letter', itstufe:'IT Grade', typ:'Type', bohrung:'Hole', welle:'Shaft',
+    unteresAbmass:'Lower Deviation', oberesAbmass:'Upper Deviation', mindestmass:'Minimum Size', hoechstmass:'Maximum Size', toleranz:'Tolerance',
+    gewindegroesse:'Thread Size', kernloch:'Tap Drill Size', regelgewinde:'Coarse Thread (DIN 13-1)',
+    required:'*', notSupported:'Not supported — no source available.',
+    outOfRange:'Outside supported range (up to 500 mm).',
+    infoTitle:'About this App', infoDev:'Developed by', infoText:'This CNC calculator computes cutting data for milling, turning and drilling, tap drill sizes for threads, and ISO fits and tolerances, based on the Tabellenbuch Metall (Europa-Lehrmittel).',
+    dataSource:'Data source',
+  }
+};
+let lang = 'de';
+try{ lang = localStorage.getItem('cncLang') || 'de'; }catch(e){}
+function t(key){ return T[lang][key] || key; }
+function setLang(l){ lang=l; try{ localStorage.setItem('cncLang', l); }catch(e){} document.documentElement.lang=l; renderShell(); render(); }
+
+/* Werkstoff-Namen: DE = Originalbegriff aus dem Buch, EN = technische Übersetzung */
+const MAT_EN = {
+  'Baustahl':'Structural steel','Automatenstahl':'Free-cutting steel','Einsatzstahl':'Case-hardening steel',
+  'Einsatzstahl, unlegiert':'Case-hardening steel (unalloyed)','Einsatzstahl, legiert':'Case-hardening steel (alloyed)',
+  'Vergütungsstahl, unlegiert':'Quenched & tempered steel (unalloyed)','Vergütungsstahl, legiert':'Quenched & tempered steel (alloyed)',
+  'Vergütungsstahl':'Quenched & tempered steel','Werkzeugstahl':'Tool steel','Stahlguss':'Cast steel',
+  'Nichtrostender Stahl, austenitisch':'Stainless steel (austenitic)','Nichtrostender Stahl, ferritisch':'Stainless steel (ferritic)',
+  'Nichtrostender Stahl, martensitisch':'Stainless steel (martensitic)','Nichtrostender Stahl (austenitisch/ferritisch)':'Stainless steel (austenitic/ferritic)',
+  'Gusseisen mit Lamellengrafit':'Grey cast iron (flake graphite)','Gusseisen mit Kugelgrafit':'Ductile cast iron (nodular graphite)',
+  'Temperguss':'Malleable cast iron','Al-Knetlegierung':'Aluminium wrought alloy','Al-Legierung, ausgehärtet':'Aluminium alloy (age-hardened)',
+  'Al-Gusslegierungen':'Aluminium cast alloy','Al-Gusslegierung':'Aluminium cast alloy',
+  'CuZn-Legierung (Messing)':'Brass (CuZn alloy)','CuZn-Legierung, kurzspanend':'Brass, free-machining',
+  'CuSn-Legierung (Bronze)':'Bronze (CuSn alloy)','CuSn-Legierung, langspanend':'Bronze, long-chipping',
+  'Thermoplast, Duroplast':'Thermoplastic / Thermoset','Thermoplaste':'Thermoplastics','Duroplaste':'Thermosets',
+  'Faserverstärkter Kunststoff':'Fibre-reinforced plastic',
+};
+function matName(g){ return lang==='de'? g : (MAT_EN[g]||g); }
+function condName(c){ return c; } // Rm/HB Kürzel bleiben in beiden Sprachen gleich (technischer Standard)
+
+/* ---------------- FRÄSEN-DATEN (S.359, S.362) ---------------- */
+const FRAESEN_TABLES = {
+  eckplan90: { key:'eckplan', src:'Tabellenbuch Metall S.359', werkzeugmaterial:'Hartmetall (HM)', rows:[
+    {g:'Baustahl', c:'Rm≤500', vc:[200,230,260], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Baustahl', c:'Rm>500', vc:[160,200,240], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Automatenstahl', c:'Rm≤570', vc:[160,200,240], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Einsatzstahl', c:'Rm≤570', vc:[200,235,270], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Vergütungsstahl, unlegiert', c:'Rm≤650', vc:[150,175,200], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Vergütungsstahl, unlegiert', c:'Rm>650', vc:[140,165,190], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Vergütungsstahl, legiert', c:'Rm≤750', vc:[140,165,190], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Vergütungsstahl, legiert', c:'Rm>750', vc:[140,165,190], fzA:[0.08,0.12,0.16], fzB:[0.14,0.21,0.28]},
+    {g:'Werkzeugstahl', c:'Rm≤750', vc:[75,100,125], fzA:[0.08,0.11,0.14], fzB:[0.14,0.19,0.24]},
+    {g:'Stahlguss', c:'Rm≤700', vc:[190,210,230], fzA:[0.08,0.10,0.12], fzB:[0.11,0.15,0.19]},
+    {g:'Stahlguss', c:'Rm>700', vc:[130,150,170], fzA:[0.08,0.10,0.12], fzB:[0.11,0.15,0.19]},
+    {g:'Nichtrostender Stahl, austenitisch', c:'Rm≤680', vc:[180,200,220], fzA:[0.10,0.13,0.16], fzB:[0.17,0.22,0.28]},
+    {g:'Nichtrostender Stahl, ferritisch', c:'Rm≤700', vc:[160,180,200], fzA:[0.09,0.12,0.14], fzB:[0.17,0.21,0.25]},
+    {g:'Nichtrostender Stahl, martensitisch', c:'Rm>500', vc:[150,170,190], fzA:[0.09,0.11,0.12], fzB:[0.17,0.19,0.21]},
+    {g:'Gusseisen mit Lamellengrafit', c:'≤200HB', vc:[220,240,260], fzA:[0.08,0.13,0.18], fzB:[0.14,0.23,0.32]},
+    {g:'Gusseisen mit Lamellengrafit', c:'>200HB', vc:[120,140,160], fzA:[0.08,0.13,0.18], fzB:[0.14,0.23,0.32]},
+    {g:'Gusseisen mit Kugelgrafit', c:'≤250HB', vc:[200,220,240], fzA:[0.08,0.13,0.18], fzB:[0.14,0.23,0.32]},
+    {g:'Gusseisen mit Kugelgrafit', c:'>250HB', vc:[110,130,150], fzA:[0.08,0.13,0.18], fzB:[0.14,0.23,0.32]},
+    {g:'Temperguss', c:'≤230HB', vc:[120,140,160], fzA:[0.08,0.13,0.18], fzB:[0.14,0.23,0.32]},
+    {g:'Temperguss', c:'>230HB', vc:[100,120,140], fzA:[0.08,0.13,0.18], fzB:[0.14,0.23,0.32]},
+    {g:'Al-Knetlegierung', c:'Rm≤300', vc:[600,700,800], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Al-Legierung, ausgehärtet', c:'Rm>300', vc:[400,500,600], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Al-Gusslegierungen', c:'≤75HB', vc:[200,350,500], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Al-Gusslegierungen', c:'>75HB', vc:[180,300,420], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'CuZn-Legierung (Messing)', c:'Rm≤600', vc:[500,600,700], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'CuSn-Legierung (Bronze)', c:'Rm≤700', vc:[300,400,500], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Thermoplast, Duroplast', c:'–', vc:[340,430,520], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+    {g:'Faserverstärkter Kunststoff', c:'–', vc:[230,370,500], fzA:[0.10,0.14,0.18], fzB:[0.17,0.24,0.31]},
+  ]},
+  planAllg: { key:'planallg', src:'Tabellenbuch Metall S.362', werkzeugmaterial:'Hartmetall (HM)', rows:[
+    {g:'Baustahl', c:'Rm≤500', vc:[240,260,280], fzA:[0.11,0.18,0.25], fzB:[0.15,0.25,0.35]},
+    {g:'Baustahl', c:'Rm>500', vc:[180,200,220], fzA:[0.11,0.18,0.25], fzB:[0.15,0.25,0.35]},
+    {g:'Automatenstahl', c:'Rm≤570', vc:[230,250,270], fzA:[0.11,0.18,0.25], fzB:[0.15,0.25,0.35]},
+    {g:'Einsatzstahl', c:'Rm≤570', vc:[260,280,300], fzA:[0.11,0.18,0.25], fzB:[0.15,0.25,0.35]},
+    {g:'Vergütungsstahl, unlegiert', c:'Rm≤650', vc:[130,150,170], fzA:[0.11,0.17,0.23], fzB:[0.13,0.23,0.30]},
+    {g:'Vergütungsstahl, unlegiert', c:'Rm>650', vc:[190,210,230], fzA:[0.11,0.18,0.25], fzB:[0.14,0.24,0.33]},
+    {g:'Vergütungsstahl, legiert', c:'Rm≤750', vc:[160,190,210], fzA:[0.11,0.17,0.24], fzB:[0.14,0.24,0.33]},
+    {g:'Vergütungsstahl, legiert', c:'Rm>750', vc:[160,190,210], fzA:[0.11,0.17,0.24], fzB:[0.14,0.24,0.33]},
+    {g:'Werkzeugstahl', c:'Rm≤750', vc:[120,140,160], fzA:[0.11,0.15,0.22], fzB:[0.12,0.22,0.28]},
+    {g:'Stahlguss', c:'Rm≤700', vc:[100,120,140], fzA:[0.11,0.17,0.24], fzB:[0.14,0.24,0.33]},
+    {g:'Stahlguss', c:'Rm>700', vc:[160,190,210], fzA:[0.11,0.17,0.24], fzB:[0.14,0.24,0.33]},
+    {g:'Nichtrostender Stahl, austenitisch', c:'Rm≤680', vc:[100,120,140], fzA:[0.11,0.16,0.23], fzB:[0.15,0.23,0.30]},
+    {g:'Nichtrostender Stahl, ferritisch', c:'Rm≤700', vc:[130,150,170], fzA:[0.11,0.15,0.22], fzB:[0.15,0.22,0.28]},
+    {g:'Nichtrostender Stahl, martensitisch', c:'Rm≤500', vc:[80,100,120], fzA:[0.11,0.14,0.20], fzB:[0.15,0.20,0.25]},
+    {g:'Gusseisen mit Lamellengrafit', c:'≤200HB', vc:[210,230,250], fzA:[0.11,0.18,0.25], fzB:[0.15,0.23,0.30]},
+    {g:'Gusseisen mit Lamellengrafit', c:'>200HB', vc:[200,220,240], fzA:[0.11,0.18,0.25], fzB:[0.15,0.23,0.30]},
+    {g:'Gusseisen mit Kugelgrafit', c:'≤250HB', vc:[110,130,150], fzA:[0.11,0.17,0.24], fzB:[0.14,0.24,0.33]},
+    {g:'Gusseisen mit Kugelgrafit', c:'>250HB', vc:[100,120,140], fzA:[0.11,0.17,0.24], fzB:[0.14,0.24,0.33]},
+    {g:'Temperguss', c:'≤230HB', vc:[190,205,220], fzA:[0.18,0.21,0.24], fzB:[0.25,0.29,0.33]},
+    {g:'Temperguss', c:'>230HB', vc:[170,190,210], fzA:[0.18,0.21,0.24], fzB:[0.18,0.23,0.28]},
+    {g:'Al-Knetlegierung', c:'Rm≤350', vc:[200,500,800], fzA:[0.11,0.18,0.25], fzB:[0.15,0.20,0.30]},
+    {g:'Al-Legierung, ausgehärtet', c:'Rm>300', vc:[200,400,600], fzA:[0.11,0.18,0.25], fzB:[0.14,0.22,0.30]},
+    {g:'Al-Gusslegierungen', c:'≤75HB', vc:[180,310,450], fzA:[0.11,0.17,0.24], fzB:[0.12,0.20,0.28]},
+    {g:'CuZn-Legierung (Messing)', c:'Rm≤600', vc:[100,300,500], fzA:[0.11,0.13,0.20], fzB:[0.12,0.15,0.20]},
+    {g:'CuSn-Legierung (Bronze)', c:'Rm≤700', vc:[100,300,500], fzA:[0.11,0.13,0.20], fzB:[0.12,0.15,0.20]},
+    {g:'Thermoplast, Duroplast', c:'–', vc:[200,450,800], fzA:[0.11,0.18,0.25], fzB:[0.15,0.22,0.30]},
+    {g:'Faserverstärkter Kunststoff', c:'–', vc:[200,300,500], fzA:[0.11,0.18,0.25], fzB:[0.15,0.22,0.30]},
+  ]}
+};
+
+/* Walzenstirnfräsen (S.360, HSS unbeschichtet/beschichtet) */
+const WALZENSTIRN_TABLE = { src:'Tabellenbuch Metall S.360', fz:{unbeschichtet:[0.055,0.085], beschichtet:[0.065,0.100]}, rows:[
+  {g:'Baustahl', c:'Rm≤500', unb:[25,30,35], besch:[60,65,70]},
+  {g:'Baustahl', c:'Rm>500', unb:[25,30,35], besch:[60,65,70]},
+  {g:'Automatenstahl', c:'Rm≤570', unb:[25,30,35], besch:[60,65,70]},
+  {g:'Automatenstahl', c:'Rm>570', unb:[25,30,35], besch:[60,65,70]},
+  {g:'Einsatzstahl', c:'Rm≤570', unb:[25,30,35], besch:[60,65,70]},
+  {g:'Einsatzstahl', c:'Rm>570', unb:[25,30,35], besch:[60,65,70]},
+  {g:'Vergütungsstahl, unlegiert', c:'Rm≤650', unb:[25,30,35], besch:[60,65,70]},
+  {g:'Vergütungsstahl, unlegiert', c:'Rm>650', unb:[15,20,25], besch:[50,55,60]},
+  {g:'Vergütungsstahl, legiert', c:'Rm≤750', unb:[20,25,30], besch:[50,55,60]},
+  {g:'Vergütungsstahl, legiert', c:'Rm>750', unb:[10,15,20], besch:[35,40,45]},
+  {g:'Werkzeugstahl', c:'Rm≤750', unb:[25,30,35], besch:[60,65,70]},
+  {g:'Werkzeugstahl', c:'Rm>750', unb:[10,15,20], besch:[50,55,60]},
+  {g:'Stahlguss', c:'Rm≤700', unb:[20,25,30], besch:[60,65,70]},
+  {g:'Stahlguss', c:'Rm>700', unb:[15,20,25], besch:[55,60,65]},
+  {g:'Nichtrostender Stahl, austenitisch', c:'Rm≤680', unb:[7,9,11], besch:[24,27,30]},
+  {g:'Nichtrostender Stahl, ferritisch', c:'Rm≤700', unb:[13,15,18], besch:[40,45,50]},
+  {g:'Nichtrostender Stahl, martensitisch', c:'Rm>500', unb:[12,14,16], besch:[35,40,45]},
+  {g:'Gusseisen mit Lamellengrafit', c:'≤200HB', unb:[15,20,25], besch:[50,55,60]},
+  {g:'Gusseisen mit Lamellengrafit', c:'>200HB', unb:[12,14,16], besch:[35,40,45]},
+  {g:'Gusseisen mit Kugelgrafit', c:'≤250HB', unb:[20,25,30], besch:[50,55,60]},
+  {g:'Gusseisen mit Kugelgrafit', c:'>250HB', unb:[12,14,16], besch:[35,40,45]},
+  {g:'Temperguss', c:'≤230HB', unb:[20,25,30], besch:[50,55,60]},
+  {g:'Temperguss', c:'>230HB', unb:[12,14,16], besch:[35,40,45]},
+  {g:'Al-Knetlegierung', c:'Rm≤300', unb:[180,190,200], besch:[340,350,360]},
+  {g:'Al-Legierung, ausgehärtet', c:'Rm>300', unb:[180,190,200], besch:[340,350,360]},
+  {g:'Al-Gusslegierungen', c:'–', unb:[180,190,200], besch:[340,350,360]},
+  {g:'CuZn-Legierung (Messing)', c:'Rm≤600', unb:[50,55,60], besch:[80,85,90]},
+  {g:'Thermoplast, Duroplast', c:'–', unb:[160,180,200], besch:null},
+]};
+
+/* Konturfräsen (S.361 HSS beschichtet, S.363 VHM beschichtet) — echte Schruppen/Schlichten-Spalten, fz je Fräserdurchmesser (4/12/20mm) */
+const KONTUR_DCOLS = [4.0,12.0,20.0];
+const KONTUR_HSS = { src:'Tabellenbuch Metall S.361', korrekturUnbeschichtet:0.35, rows:[
+  {g:'Baustahl', c:'Rm≤500', vcS:[70,75,80], fzS:[0.009,0.037,0.060], vcF:[80,85,90], fzF:[0.005,0.022,0.044]},
+  {g:'Baustahl', c:'Rm>500', vcS:[60,65,70], fzS:[0.007,0.032,0.053], vcF:[65,70,75], fzF:[0.004,0.019,0.039]},
+  {g:'Automatenstahl', c:'Rm≤570', vcS:[65,70,75], fzS:[0.007,0.032,0.053], vcF:[70,75,80], fzF:[0.004,0.019,0.031]},
+  {g:'Automatenstahl', c:'Rm>570', vcS:[60,65,70], fzS:[0.007,0.032,0.053], vcF:[65,70,75], fzF:[0.004,0.019,0.031]},
+  {g:'Einsatzstahl', c:'Rm≤570', vcS:[50,55,60], fzS:[0.007,0.032,0.053], vcF:[60,65,70], fzF:[0.004,0.019,0.031]},
+  {g:'Einsatzstahl', c:'Rm>570', vcS:[40,45,50], fzS:[0.009,0.037,0.060], vcF:[45,50,55], fzF:[0.005,0.022,0.035]},
+  {g:'Vergütungsstahl, unlegiert', c:'Rm≤650', vcS:[60,65,70], fzS:[0.007,0.032,0.053], vcF:[65,70,75], fzF:[0.004,0.019,0.031]},
+  {g:'Vergütungsstahl, unlegiert', c:'Rm>650', vcS:[40,45,50], fzS:[0.007,0.032,0.053], vcF:[45,50,55], fzF:[0.004,0.019,0.031]},
+  {g:'Vergütungsstahl, legiert', c:'Rm≤750', vcS:[40,45,50], fzS:[0.007,0.032,0.053], vcF:[45,50,55], fzF:[0.004,0.019,0.031]},
+  {g:'Vergütungsstahl, legiert', c:'Rm>750', vcS:[35,40,45], fzS:[0.009,0.037,0.060], vcF:[40,45,50], fzF:[0.005,0.022,0.035]},
+  {g:'Werkzeugstahl', c:'Rm≤750', vcS:[30,35,40], fzS:[0.007,0.024,0.053], vcF:[35,40,45], fzF:[0.004,0.019,0.031]},
+  {g:'Werkzeugstahl', c:'Rm>750', vcS:[25,30,35], fzS:[0.009,0.037,0.060], vcF:[25,30,35], fzF:[0.005,0.022,0.035]},
+  {g:'Stahlguss', c:'Rm≤700', vcS:[40,45,50], fzS:[0.007,0.024,0.053], vcF:[45,50,55], fzF:[0.004,0.019,0.031]},
+  {g:'Stahlguss', c:'Rm>700', vcS:[35,40,45], fzS:[0.007,0.024,0.053], vcF:[40,45,50], fzF:[0.004,0.019,0.031]},
+  {g:'Nichtrostender Stahl, austenitisch', c:'Rm≤680', vcS:[20,25,30], fzS:[0.007,0.032,0.053], vcF:[25,30,35], fzF:[0.004,0.019,0.031]},
+  {g:'Nichtrostender Stahl, ferritisch', c:'Rm≤700', vcS:[25,30,35], fzS:[0.007,0.032,0.053], vcF:[10,15,20], fzF:[0.005,0.022,0.035]},
+  {g:'Nichtrostender Stahl, martensitisch', c:'Rm>500', vcS:[10,15,20], fzS:[0.009,0.037,0.060], vcF:[55,60,65], fzF:[0.004,0.019,0.031]},
+  {g:'Gusseisen mit Lamellengrafit', c:'≤200HB', vcS:[30,55,60], fzS:[0.007,0.032,0.053], vcF:[50,55,60], fzF:[0.004,0.019,0.031]},
+  {g:'Gusseisen mit Lamellengrafit', c:'>200HB', vcS:[25,45,55], fzS:[0.007,0.032,0.053], vcF:[40,45,50], fzF:[0.004,0.019,0.031]},
+  {g:'Gusseisen mit Kugelgrafit', c:'≤250HB', vcS:[35,40,45], fzS:[0.007,0.032,0.053], vcF:[30,35,35], fzF:[0.004,0.019,0.031]},
+  {g:'Gusseisen mit Kugelgrafit', c:'>250HB', vcS:[25,30,35], fzS:[0.007,0.032,0.053], vcF:[40,45,50], fzF:[0.004,0.019,0.031]},
+  {g:'Al-Knetlegierung', c:'Rm≤300', vcS:[180,200,220], fzS:[0.010,0.049,0.085], vcF:[220,230,240], fzF:[0.008,0.041,0.055]},
+  {g:'Al-Legierung, ausgehärtet', c:'Rm>300', vcS:[100,120,140], fzS:[0.014,0.062,0.094], vcF:[130,140,150], fzF:[0.011,0.028,0.060]},
+  {g:'Al-Gusslegierungen', c:'≤75HB', vcS:[90,100,110], fzS:[0.018,0.069,0.102], vcF:[90,100,110], fzF:[0.011,0.028,0.060]},
+  {g:'CuZn-Legierung (Messing)', c:'Rm≤600', vcS:[80,85,90], fzS:[0.014,0.062,0.094], vcF:[50,60,70], fzF:[0.008,0.036,0.055]},
+  {g:'CuSn-Legierung (Bronze)', c:'Rm≤700', vcS:[40,50,60], fzS:[0.014,0.062,0.094], vcF:[55,60,65], fzF:[0.008,0.036,0.055]},
+]};
+const KONTUR_VHM = { src:'Tabellenbuch Metall S.363', korrekturUnbeschichtet:0.6, rows:[
+  {g:'Baustahl', c:'Rm≤500', vcS:[130,140,150], fzS:[0.023,0.080,0.120], vcF:[170,190,210], fzF:[0.032,0.080,0.120]},
+  {g:'Baustahl', c:'Rm>500', vcS:[110,120,130], fzS:[0.023,0.080,0.120], vcF:[150,170,190], fzF:[0.032,0.080,0.120]},
+  {g:'Automatenstahl', c:'Rm≤570', vcS:[110,120,130], fzS:[0.023,0.080,0.120], vcF:[150,170,190], fzF:[0.032,0.080,0.120]},
+  {g:'Automatenstahl', c:'Rm>570', vcS:[90,100,110], fzS:[0.023,0.080,0.120], vcF:[125,140,155], fzF:[0.023,0.063,0.120]},
+  {g:'Einsatzstahl', c:'Rm≤570', vcS:[110,120,130], fzS:[0.014,0.045,0.080], vcF:[150,170,190], fzF:[0.032,0.080,0.120]},
+  {g:'Einsatzstahl', c:'Rm>570', vcS:[70,80,90], fzS:[0.013,0.040,0.065], vcF:[90,100,110], fzF:[0.020,0.060,0.120]},
+  {g:'Vergütungsstahl, unlegiert', c:'Rm≤650', vcS:[110,120,130], fzS:[0.023,0.080,0.120], vcF:[150,170,190], fzF:[0.032,0.080,0.120]},
+  {g:'Vergütungsstahl, unlegiert', c:'Rm>650', vcS:[90,100,110], fzS:[0.014,0.045,0.080], vcF:[145,160,175], fzF:[0.032,0.080,0.120]},
+  {g:'Vergütungsstahl, legiert', c:'Rm≤750', vcS:[75,85,95], fzS:[0.014,0.045,0.080], vcF:[110,120,130], fzF:[0.023,0.063,0.120]},
+  {g:'Vergütungsstahl, legiert', c:'Rm>750', vcS:[60,70,80], fzS:[0.013,0.040,0.065], vcF:[85,95,105], fzF:[0.020,0.060,0.120]},
+  {g:'Werkzeugstahl', c:'Rm≤750', vcS:[75,85,95], fzS:[0.014,0.045,0.080], vcF:[110,120,130], fzF:[0.023,0.063,0.120]},
+  {g:'Werkzeugstahl', c:'Rm>750', vcS:[55,65,75], fzS:[0.013,0.040,0.065], vcF:[80,90,100], fzF:[0.020,0.060,0.120]},
+  {g:'Stahlguss', c:'Rm≤700', vcS:[75,90,105], fzS:[0.014,0.045,0.080], vcF:[110,125,140], fzF:[0.023,0.063,0.120]},
+  {g:'Stahlguss', c:'Rm>700', vcS:[60,75,90], fzS:[0.013,0.040,0.065], vcF:[85,100,115], fzF:[0.020,0.060,0.120]},
+  {g:'Nichtrostender Stahl, austenitisch', c:'Rm≤680', vcS:[75,85,95], fzS:[0.015,0.050,0.090], vcF:[100,110,120], fzF:[0.023,0.063,0.120]},
+  {g:'Nichtrostender Stahl, ferritisch', c:'Rm≤700', vcS:[80,90,100], fzS:[0.015,0.050,0.090], vcF:[100,110,120], fzF:[0.023,0.063,0.120]},
+  {g:'Nichtrostender Stahl, martensitisch', c:'Rm>500', vcS:[55,65,75], fzS:[0.012,0.045,0.075], vcF:[65,75,85], fzF:[0.020,0.060,0.100]},
+  {g:'Gusseisen mit Lamellengrafit', c:'≤200HB', vcS:[115,130,145], fzS:[0.020,0.060,0.100], vcF:[135,150,165], fzF:[0.020,0.089,0.120]},
+  {g:'Gusseisen mit Lamellengrafit', c:'>200HB', vcS:[90,100,110], fzS:[0.020,0.060,0.100], vcF:[110,120,130], fzF:[0.020,0.089,0.120]},
+  {g:'Gusseisen mit Kugelgrafit', c:'≤250HB', vcS:[95,105,115], fzS:[0.020,0.060,0.100], vcF:[105,115,130], fzF:[0.020,0.089,0.120]},
+  {g:'Al-Knetlegierung', c:'Rm≤350', vcS:[320,350,380], fzS:[0.020,0.070,0.120], vcF:[550,600,650], fzF:[0.024,0.079,0.120]},
+  {g:'Al-Legierung, ausgehärtet', c:'–', vcS:[270,300,330], fzS:[0.020,0.070,0.120], vcF:[360,400,440], fzF:[0.024,0.079,0.120]},
+  {g:'Al-Gusslegierungen', c:'≤600HB', vcS:[200,220,240], fzS:[0.020,0.070,0.120], vcF:[290,320,350], fzF:[0.024,0.079,0.120]},
+  {g:'CuZn-Legierung (Messing)', c:'Rm≤600', vcS:[250,280,310], fzS:[0.020,0.070,0.120], vcF:[260,280,300], fzF:[0.024,0.079,0.120]},
+  {g:'CuSn-Legierung (Bronze)', c:'–', vcS:[225,240,265], fzS:[0.015,0.070,0.120], vcF:[135,150,165], fzF:[0.024,0.079,0.120]},
+]};
+
+/* ---------------- DREHEN-DATEN (S.352 HSS, S.350 HM) ---------------- */
+const DREHEN_TABLE_HSS = { src:'Tabellenbuch Metall S.352', rows:[
+  {g:'Baustahl', c:'Rm≤500', quer:[50,60,70], schrupp:[40,50,60], schlicht:[60,70,80], einstech:[30,35,40]},
+  {g:'Baustahl', c:'Rm>500', quer:[40,45,50], schrupp:[30,40,50], schlicht:[50,55,60], einstech:[20,25,30]},
+  {g:'Automatenstahl', c:'Rm≤570', quer:[35,40,45], schrupp:[30,35,40], schlicht:[45,50,60], einstech:[20,25,30]},
+  {g:'Einsatzstahl', c:'Rm≤570', quer:[30,35,40], schrupp:[25,30,35], schlicht:[35,40,45], einstech:[16,18,20]},
+  {g:'Vergütungsstahl, unlegiert', c:'Rm≤650', quer:[30,35,40], schrupp:[25,30,35], schlicht:[35,40,45], einstech:[20,15,30]},
+  {g:'Werkzeugstahl', c:'Rm>750', quer:[18,20,22], schrupp:[18,20,22], schlicht:[22,28,34], einstech:[12,16,20]},
+  {g:'Stahlguss', c:'Rm>700', quer:[18,21,24], schrupp:[14,17,20], schlicht:[20,25,30], einstech:[10,13,16]},
+  {g:'Nichtrostender Stahl (austenitisch/ferritisch)', c:'Rm≤680', quer:[19,22,25], schrupp:[18,20,22], schlicht:[22,26,30], einstech:[11,13,15]},
+  {g:'Nichtrostender Stahl (austenitisch/ferritisch)', c:'Rm>680', quer:[12,16,20], schrupp:[10,13,16], schlicht:[15,20,25], einstech:[8,10,12]},
+  {g:'Gusseisen mit Lamellengrafit', c:'≤200HB', quer:[35,40,45], schrupp:[30,35,40], schlicht:[40,45,50], einstech:[25,30,35]},
+  {g:'Gusseisen mit Lamellengrafit', c:'>200HB', quer:[18,20,22], schrupp:[14,17,20], schlicht:[20,27,34], einstech:[12,16,18]},
+  {g:'Al-Knetlegierung', c:'Rm≤300', quer:[140,160,180], schrupp:[120,140,160], schlicht:[160,180,200], einstech:[150,175,200]},
+  {g:'Al-Legierung, ausgehärtet', c:'Rm>300', quer:[90,100,110], schrupp:[80,90,100], schlicht:[100,110,120], einstech:[90,100,110]},
+  {g:'Al-Gusslegierungen', c:'≤75HB', quer:[70,80,90], schrupp:[50,65,80], schlicht:[80,90,100], einstech:[50,70,90]},
+  {g:'CuZn-Legierung (Messing)', c:'Rm≤600', quer:[90,100,110], schrupp:[80,90,100], schlicht:[100,110,120], einstech:[80,90,100]},
+  {g:'CuSn-Legierung (Bronze)', c:'Rm≤700', quer:[70,80,90], schrupp:[60,80,90], schlicht:[80,90,100], einstech:[60,80,100]},
+  {g:'Thermoplast, Duroplast', c:'–', quer:[225,250,275], schrupp:[200,225,250], schlicht:[250,275,300], einstech:[150,175,200]},
+  {g:'Faserverstärkter Kunststoff', c:'–', quer:[70,80,90], schrupp:[60,70,80], schlicht:[80,90,100], einstech:[50,90,90]},
+]};
+const DREHEN_TABLE_HM = { src:'Tabellenbuch Metall S.350-351', rows:[
+  {g:'Baustahl', c:'Rm≤500', quer:[210,280,350], schrupp:[150,220,300], schlicht:[280,340,400], abstech:[140,160,180], gewinde:[140,155,170]},
+  {g:'Baustahl', c:'Rm>500', quer:[160,230,300], schrupp:[100,170,240], schlicht:[220,290,350], abstech:[130,150,170], gewinde:[130,145,160]},
+  {g:'Automatenstahl', c:'Rm≤570', quer:[180,250,320], schrupp:[130,200,270], schlicht:[240,300,360], abstech:[135,155,175], gewinde:[135,150,165]},
+  {g:'Einsatzstahl', c:'Rm≤570', quer:[200,270,320], schrupp:[150,210,260], schlicht:[250,320,360], abstech:[140,150,160], gewinde:[135,145,155]},
+  {g:'Vergütungsstahl, unlegiert', c:'Rm≤650', quer:[180,250,320], schrupp:[120,190,240], schlicht:[220,300,380], abstech:[115,135,155], gewinde:[120,130,140]},
+  {g:'Vergütungsstahl, unlegiert', c:'Rm>650', quer:[110,200,280], schrupp:[110,150,200], schlicht:[190,250,310], abstech:[110,120,130], gewinde:[105,115,125]},
+  {g:'Vergütungsstahl, legiert', c:'Rm≤750', quer:[100,160,220], schrupp:[90,130,180], schlicht:[125,185,245], abstech:[105,115,125], gewinde:[100,110,120]},
+  {g:'Vergütungsstahl, legiert', c:'Rm>750', quer:[80,130,180], schrupp:[70,110,160], schlicht:[100,150,200], abstech:[95,105,115], gewinde:[90,100,110]},
+  {g:'Werkzeugstahl', c:'Rm≤750', quer:[95,145,195], schrupp:[85,125,170], schlicht:[115,165,215], abstech:[85,95,105], gewinde:[85,95,105]},
+  {g:'Werkzeugstahl', c:'Rm>750', quer:[60,110,160], schrupp:[40,80,120], schlicht:[100,140,180], abstech:[55,75,95], gewinde:[50,60,70]},
+  {g:'Stahlguss', c:'Rm≤700', quer:[140,180,220], schrupp:[105,155,180], schlicht:[160,200,240], abstech:[60,80,100], gewinde:[60,80,100]},
+  {g:'Stahlguss', c:'Rm>700', quer:[100,135,170], schrupp:[80,110,140], schlicht:[130,160,190], abstech:[50,70,90], gewinde:[50,70,90]},
+  {g:'Nichtrostender Stahl, austenitisch', c:'Rm≤680', quer:[140,170,200], schrupp:[90,110,130], schlicht:[200,230,260], abstech:[110,130,150], gewinde:[110,120,130]},
+  {g:'Nichtrostender Stahl, ferritisch', c:'Rm>680', quer:[100,120,140], schrupp:[70,90,110], schlicht:[150,170,190], abstech:[60,80,100], gewinde:[60,70,80]},
+  {g:'Gusseisen mit Lamellengrafit', c:'≤200HB', quer:[300,370,440], schrupp:[230,280,330], schlicht:[380,450,520], abstech:[215,230,245], gewinde:[110,130,150]},
+  {g:'Gusseisen mit Kugelgrafit', c:'≤250HB', quer:[210,270,330], schrupp:[160,210,260], schlicht:[250,320,410], abstech:[200,220,240], gewinde:[70,80,90]},
+  {g:'Temperguss', c:'≤230HB', quer:[190,235,280], schrupp:[140,170,200], schlicht:[240,300,370], abstech:[120,150,180], gewinde:[80,90,100]},
+  {g:'Al-Knetlegierung', c:'Rm≤300', quer:[350,450,560], schrupp:[380,450,520], schlicht:[600,700,800], abstech:[500,600,700], gewinde:[300,350,400]},
+  {g:'Al-Legierung, ausgehärtet', c:'Rm>300', quer:[200,320,440], schrupp:[240,300,360], schlicht:[400,500,600], abstech:[400,500,600], gewinde:[300,350,400]},
+  {g:'Al-Gusslegierungen', c:'≤75HB', quer:[310,400,490], schrupp:[300,360,420], schlicht:[450,550,650], abstech:[250,350,450], gewinde:[200,250,300]},
+  {g:'CuZn-Legierung (Messing)', c:'Rm≤600', quer:[320,355,390], schrupp:[250,270,300], schlicht:[400,440,480], abstech:[200,300,400], gewinde:[160,180,200]},
+  {g:'CuSn-Legierung (Bronze)', c:'Rm≤700', quer:[200,230,260], schrupp:[130,150,170], schlicht:[280,310,340], abstech:[250,350,450], gewinde:[180,210,240]},
+  {g:'Thermoplast, Duroplast', c:'–', quer:[340,430,520], schrupp:[270,360,450], schlicht:[400,500,600], abstech:[300,400,500], gewinde:[180,210,240]},
+  {g:'Faserverstärkter Kunststoff', c:'–', quer:[230,320,410], schrupp:[190,220,310], schlicht:[340,420,500]},
+]};
+const DREHEN_AP_HM = {abstech:[0.5,2], gewinde:null};
+const DREHEN_F_HM  = {abstech:[0.05,0.15], gewinde:null};
+const DREHEN_AP = {quer:[0.1,0.2], schrupp:[2,4], schlicht:[0.5,1], einstech:[0.6,6]};
+const DREHEN_F  = {quer:[0.2,0.1], schrupp:[0.6,0.3], schlicht:[0.25,0.1], einstech:[0.02,0.1]};
+
+/* ---------------- BOHREN-DATEN (S.370-372) ---------------- */
+const BOHREN_TABLES = {
+  spiral: { src:'Tabellenbuch Metall S.370', dCols:[2,5,8,12,16], rows:[
+    {g:'Baustahl', c:'Rm≤500', vcHSS:[38,50,63], vcHM:[70,85,100], f:[0.05,0.13,0.22,0.27,0.32]},
+    {g:'Baustahl', c:'Rm>500', vcHSS:[31,37,44], vcHM:[70,85,100], f:[0.05,0.13,0.22,0.27,0.32]},
+    {g:'Automatenstahl', c:'Rm≤550', vcHSS:[25,31,38], vcHM:[60,75,85], f:[0.03,0.08,0.11,0.17,0.22]},
+    {g:'Einsatzstahl, unlegiert', c:'Rm≤750', vcHSS:[19,22,25], vcHM:[60,75,85], f:[0.02,0.05,0.09,0.13,0.15]},
+    {g:'Einsatzstahl, legiert', c:'Rm>650', vcHSS:[10,12,15], vcHM:[50,65,80], f:[0.02,0.05,0.09,0.13,0.15]},
+    {g:'Vergütungsstahl, unlegiert', c:'Rm≤650', vcHSS:[31,37,44], vcHM:[70,85,100], f:[0.03,0.08,0.11,0.17,0.22]},
+    {g:'Vergütungsstahl, legiert', c:'Rm≤750', vcHSS:[19,21,25], vcHM:[60,75,85], f:[0.02,0.05,0.09,0.13,0.15]},
+    {g:'Werkzeugstahl', c:'Rm>750', vcHSS:[10,12,15], vcHM:[40,55,70], f:[0.02,0.05,0.09,0.13,0.15]},
+    {g:'Nichtrostender Stahl, austenitisch', c:'Rm≤680', vcHSS:[13,19,25], vcHM:[30,40,50], f:[0.02,0.05,0.09,0.13,0.15]},
+    {g:'Nichtrostender Stahl, martensitisch', c:'Rm>500', vcHSS:[8,10,13], vcHM:[25,30,35], f:[0.02,0.05,0.09,0.13,0.15]},
+    {g:'Gusseisen mit Lamellengrafit', c:'≤200HB', vcHSS:[25,31,38], vcHM:[80,105,130], f:[0.05,0.13,0.22,0.27,0.32]},
+    {g:'Gusseisen mit Kugelgrafit', c:'>250HB', vcHSS:[23,25,28], vcHM:[70,85,100], f:[0.04,0.11,0.17,0.22,0.27]},
+    {g:'Al-Knetlegierung', c:'Rm≤350', vcHSS:[50,87,125], vcHM:[180,240,300], f:[0.05,0.19,0.24,0.32,0.28]},
+    {g:'Al-Gusslegierungen', c:'–', vcHSS:[38,50,63], vcHM:[120,170,230], f:[0.03,0.09,0.15,0.22,0.27]},
+    {g:'CuZn-Legierung, kurzspanend', c:'Rm≤600', vcHSS:[75,100,125], vcHM:[120,170,230], f:[0.09,0.19,0.24,0.32,0.28]},
+    {g:'CuSn-Legierung, langspanend', c:'Rm≤850', vcHSS:[19,29,44], vcHM:[90,135,180], f:[0.05,0.09,0.15,0.22,0.27]},
+    {g:'Thermoplaste', c:'–', vcHSS:[20,30,40], vcHM:null, f:[0.05,0.08,0.14,0.20,0.25]},
+    {g:'Duroplaste', c:'–', vcHSS:[10,15,20], vcHM:null, f:[0.05,0.08,0.14,0.20,0.25]},
+  ], mode:'family-coating', toolLabel:{HSS:'HSS',HM:'Hartmetall (HM)'} },
+  anbohren: { src:'Tabellenbuch Metall S.371', dCols:[4,6,10,16,20], rows:[
+    {g:'Baustahl', c:'Rm≤500', vcHSS:[38,50,63], vcHM:[80,90,100], f:[0.08,0.11,0.14,0.14,0.14]},
+    {g:'Baustahl', c:'Rm>500', vcHSS:[31,37,44], vcHM:[60,80,90], f:[0.08,0.11,0.14,0.14,0.14]},
+    {g:'Einsatzstahl, unlegiert', c:'Rm≤750', vcHSS:[25,30,35], vcHM:[60,80,90], f:[0.08,0.11,0.14,0.14,0.14]},
+    {g:'Einsatzstahl, legiert', c:'Rm≤950', vcHSS:[19,22,25], vcHM:[50,65,70], f:[0.07,0.10,0.12,0.12,0.12]},
+    {g:'Vergütungsstahl, unlegiert', c:'Rm≤670', vcHSS:[31,37,44], vcHM:[60,80,90], f:[0.08,0.11,0.14,0.14,0.14]},
+    {g:'Vergütungsstahl, legiert', c:'Rm≤950', vcHSS:[19,21,25], vcHM:[45,55,90], f:[0.06,0.09,0.12,0.12,0.12]},
+    {g:'Werkzeugstahl', c:'Rm≤800', vcHSS:[13,16,19], vcHM:[50,60,65], f:[0.06,0.09,0.12,0.12,0.12]},
+    {g:'Nichtrostender Stahl, austenitisch', c:'Rm=700-850', vcHSS:[10,15,19], vcHM:[20,25,30], f:[0.05,0.06,0.06,0.06,0.06]},
+    {g:'Nichtrostender Stahl, martensitisch', c:'Rm≤1100', vcHSS:[7,10,13], vcHM:[25,35,45], f:[0.05,0.06,0.06,0.06,0.06]},
+    {g:'Gusseisen mit Lamellengrafit', c:'≤250HB', vcHSS:[25,31,38], vcHM:[80,90,100], f:[0.08,0.11,0.12,0.12,0.12]},
+    {g:'Gusseisen mit Kugelgrafit', c:'>250HB', vcHSS:[25,31,38], vcHM:[80,90,100], f:[0.07,0.10,0.11,0.11,0.11]},
+    {g:'Al-Knetlegierung', c:'Rm≤350', vcHSS:[50,87,125], vcHM:[220,260,300], f:[0.03,0.04,0.07,0.07,0.07]},
+    {g:'CuZn-Legierung, kurzspanend', c:'Rm≤600', vcHSS:[75,100,125], vcHM:[180,200,240], f:[0.02,0.03,0.06,0.06,0.06]},
+  ], mode:'family-coating', toolLabel:{HSS:'HSS',HM:'Hartmetall (HM)'} },
+  tiefloch: { src:'Tabellenbuch Metall S.371', dCols:[4,6,10,16,20], mode:'coating-only', fixedFamily:'Hartmetall (HM)', rows:[
+    {g:'Baustahl', c:'Rm≤500', vcUnb:[65,75,85], vcBesch:[75,85,95], f:[0.022,0.032,0.050,0.060,0.070]},
+    {g:'Baustahl', c:'Rm>500', vcUnb:[55,65,75], vcBesch:[65,75,85], f:[0.022,0.032,0.050,0.060,0.070]},
+    {g:'Automatenstahl', c:'Rm≤570', vcUnb:[70,80,90], vcBesch:[80,90,90], f:[0.025,0.035,0.055,0.065,0.080]},
+    {g:'Einsatzstahl', c:'Rm≤570', vcUnb:[60,70,90], vcBesch:[70,80,90], f:[0.016,0.024,0.040,0.050,0.060]},
+    {g:'Vergütungsstahl', c:'Rm≤650', vcUnb:[55,65,75], vcBesch:[65,75,85], f:[0.014,0.020,0.035,0.040,0.050]},
+    {g:'Werkzeugstahl', c:'Rm≤750', vcUnb:[45,50,55], vcBesch:[50,60,70], f:[0.016,0.024,0.040,0.050,0.060]},
+    {g:'Nichtrostender Stahl, austenitisch', c:'Rm≤680', vcUnb:[30,35,40], vcBesch:[35,40,45], f:[0.012,0.020,0.035,0.045,0.055]},
+    {g:'Gusseisen mit Lamellengrafit', c:'≤300HB', vcUnb:[60,70,90], vcBesch:[70,80,90], f:[0.016,0.024,0.040,0.050,0.060]},
+    {g:'Al-Knetlegierung', c:'Rm≤520', vcUnb:[105,120,135], vcBesch:[130,160,190], f:[0.100,0.140,0.180,0.200,0.220]},
+  ] },
+  reiben: { src:'Tabellenbuch Metall S.372', dCols:[4,6,10,16,20], mode:'family-only', toolLabel:{HSS:'HSS (unbeschichtet)',HM:'Hartmetall (unbeschichtet)'}, rows:[
+    {g:'Baustahl', c:'Rm≤500', vcHSS:[10,11,14], vcHM:[25,30,38], f:[0.15,0.18,0.20,0.25,0.30]},
+    {g:'Baustahl', c:'Rm>500', vcHSS:[6,7,8], vcHM:[25,30,35], f:[0.15,0.18,0.20,0.25,0.30]},
+    {g:'Einsatzstahl, unlegiert', c:'Rm≤750', vcHSS:[6,7,8], vcHM:[12,15,18], f:[0.15,0.18,0.20,0.25,0.30]},
+    {g:'Vergütungsstahl, unlegiert', c:'Rm≤670', vcHSS:[8,9,10], vcHM:[25,30,35], f:[0.15,0.18,0.20,0.25,0.30]},
+    {g:'Werkzeugstahl', c:'Rm≤800', vcHSS:[6,7,8], vcHM:[15,20,25], f:[0.15,0.18,0.20,0.25,0.30]},
+    {g:'Nichtrostender Stahl, austenitisch', c:'Rm=700-850', vcHSS:[4,5,6], vcHM:[12,15,18], f:[0.12,0.15,0.15,0.18,0.20]},
+    {g:'Gusseisen mit Lamellengrafit', c:'≤250HB', vcHSS:[4,5,6], vcHM:[8,10,12], f:[0.12,0.15,0.20,0.25,0.30]},
+    {g:'Al-Knetlegierung', c:'Rm≤350', vcHSS:[15,18,20], vcHM:[20,25,30], f:[0.20,0.26,0.30,0.35,0.40]},
+    {g:'CuZn-Legierung, kurzspanend', c:'Rm≤600', vcHSS:[10,12,14], vcHM:[20,25,30], f:[0.20,0.26,0.30,0.35,0.40]},
+  ] },
+  kegelsenken: { src:'Tabellenbuch Metall S.372', dCols:[6,10,16,20,25], mode:'coating-only', fixedFamily:'HSS', rows:[
+    {g:'Baustahl', c:'Rm≤500', vcUnb:[26,28,30], vcBesch:[31,34,36], f:[0.090,0.120,0.140,0.160,0.200]},
+    {g:'Baustahl', c:'Rm>500', vcUnb:[25,27,28], vcBesch:[30,32,36], f:[0.080,0.100,0.120,0.140,0.180]},
+    {g:'Automatenstahl', c:'Rm≤570', vcUnb:[25,27,28], vcBesch:[30,32,36], f:[0.080,0.100,0.120,0.140,0.180]},
+    {g:'Automatenstahl', c:'Rm>570', vcUnb:[18,22,25], vcBesch:[22,26,30], f:[0.060,0.080,0.100,0.120,0.140]},
+    {g:'Einsatzstahl', c:'Rm≤570', vcUnb:[25,27,29], vcBesch:[30,32,34], f:[0.080,0.100,0.120,0.140,0.180]},
+    {g:'Einsatzstahl', c:'Rm>570', vcUnb:[18,22,25], vcBesch:[22,26,30], f:[0.060,0.080,0.100,0.120,0.140]},
+    {g:'Vergütungsstahl', c:'Rm≤650', vcUnb:[18,22,25], vcBesch:[21,26,30], f:[0.060,0.080,0.100,0.120,0.140]},
+    {g:'Vergütungsstahl', c:'Rm>650', vcUnb:[23,25,27], vcBesch:[28,30,32], f:[0.080,0.100,0.120,0.140,0.140]},
+    {g:'Werkzeugstahl', c:'Rm≤750', vcUnb:[16,20,24], vcBesch:[18,22,25], f:[0.060,0.080,0.100,0.120,0.140]},
+    {g:'Werkzeugstahl', c:'Rm>750', vcUnb:[18,22,25], vcBesch:[22,26,30], f:[0.060,0.080,0.100,0.120,0.140]},
+    {g:'Nichtrostender Stahl, austenitisch', c:'Rm≤680', vcUnb:[6,8,10], vcBesch:[7,10,12], f:[0.040,0.050,0.070,0.080,0.100]},
+    {g:'Nichtrostender Stahl, austenitisch', c:'Rm>680', vcUnb:[4,7,10], vcBesch:[5,9,12], f:[0.050,0.060,0.070,0.080,0.080]},
+    {g:'Nichtrostender Stahl, martensitisch', c:'Rm≤1000', vcUnb:[3,5,7], vcBesch:[4,6,8], f:[0.040,0.050,0.070,0.080,0.100]},
+    {g:'Gusseisen mit Lamellengrafit', c:'≤1000HB', vcUnb:[6,8,10], vcBesch:[7,10,12], f:[0.040,0.050,0.070,0.080,0.100]},
+    {g:'Gusseisen mit Kugelgrafit', c:'≤300HB', vcUnb:[11,16,20], vcBesch:[15,20,24], f:[0.100,0.120,0.160,0.200,0.250]},
+    {g:'Al-Knetlegierung', c:'≤500HB', vcUnb:[9,12,15], vcBesch:[11,14,18], f:[0.070,0.080,0.120,0.160,0.200]},
+  ] },
+};
+const UNBESCHICHTET_FAKTOR = 0.7; // Tabellenbuch Metall S.370, Fußnote 4: "Unbeschichtete Werkzeuge 70%"
+
+/* ---------------- GEWINDE / KERNLOCH [DIN 13-1, INTERNET] ---------------- */
+const KERNLOCH_DIN13 = [
+  {m:'M3', p:0.5, d:2.5}, {m:'M4', p:0.7, d:3.3}, {m:'M5', p:0.8, d:4.2},
+  {m:'M6', p:1.0, d:5.0}, {m:'M8', p:1.25, d:6.8}, {m:'M10', p:1.5, d:8.5},
+  {m:'M12', p:1.75, d:10.2}, {m:'M14', p:2.0, d:12.0}, {m:'M16', p:2.0, d:14.0},
+  {m:'M18', p:2.5, d:15.5}, {m:'M20', p:2.5, d:17.5}, {m:'M22', p:2.5, d:19.5},
+  {m:'M24', p:3.0, d:21.0}, {m:'M27', p:3.0, d:24.0}, {m:'M30', p:3.5, d:26.5},
+];
+
+/* ---------------- PASSUNGEN / TOLERANZEN (S.90-92) ---------------- */
+const IT_RANGES = ['bis 3','3...6','6...10','10...18','18...30','30...50','50...80','80...120','120...180','180...250','250...315','315...400','400...500'];
+const GRUNDTOLERANZEN = {
+  'bis 3':   [0.8,1.2,2,3,4,6,10,14,25,40,60,100,140,250,400,600,1000,1400],
+  '3...6':   [1,1.5,2.5,4,5,8,12,18,30,48,75,120,180,300,480,750,1200,1800],
+  '6...10':  [1,1.5,2.5,4,6,9,15,22,36,58,90,150,220,360,580,900,1500,2200],
+  '10...18': [1.2,2,3,5,8,11,18,27,43,70,110,180,270,430,700,1100,1800,2700],
+  '18...30': [1.5,2.5,4,6,9,13,21,33,52,84,130,210,330,520,840,1300,2100,3300],
+  '30...50': [1.5,2.5,4,7,11,16,25,39,62,100,160,250,390,620,1000,1600,2500,3900],
+  '50...80': [2,3,5,8,13,19,30,46,74,120,190,300,460,740,1200,1900,3000,4600],
+  '80...120':[2.5,4,6,10,15,22,35,54,87,140,220,350,540,870,1400,2200,3500,5400],
+  '120...180':[3.5,5,8,12,18,25,40,63,100,160,250,400,630,1000,1600,2500,4000,6300],
+  '180...250':[4.5,7,10,14,20,29,46,72,115,185,290,460,720,1150,1850,2900,4600,7200],
+  '250...315':[6,8,12,16,23,32,52,81,130,210,320,520,810,1300,2100,3200,5200,8100],
+  '315...400':[7,9,13,18,25,36,57,89,140,230,360,570,890,1400,2300,3600,5700,8900],
+  '400...500':[8,10,15,20,27,40,63,97,155,250,400,630,970,1550,2500,4000,6300,9700],
+};
+const WELLE_ABMASS = {
+  c:[-60,-70,-80,-95,-110,-120,-140,-150,-170,-190,-210,-230,-240], d:[-20,-30,-40,-50,-65,-80,-100,-120,-145,-170,-190,-210,-230],
+  e:[-14,-20,-25,-32,-40,-50,-60,-72,-85,-100,-110,-125,-135], f:[-6,-10,-13,-16,-20,-25,-30,-36,-43,-50,-56,-62,-68],
+  g:[-2,-4,-5,-6,-7,-9,-10,-12,-14,-15,-17,-18,-20], h:[0,0,0,0,0,0,0,0,0,0,0,0,0],
+  k:[0,1,1,1,2,2,2,3,3,4,4,4,5], m:[2,4,6,7,8,9,11,13,15,17,20,21,23], n:[4,8,10,12,15,17,20,23,27,31,34,37,40],
+  p:[6,12,15,18,22,26,32,37,43,50,56,62,68], r:[10,15,19,23,28,34,41,49,58,68,76,84,94], s:[14,19,23,28,35,43,53,66,82,102,121,138,150],
+};
+const BOHRUNG_ABMASS = {
+  C:[60,70,80,95,110,120,140,150,170,190,210,230,240], D:[20,30,40,50,65,80,100,120,145,170,190,210,230],
+  E:[14,20,25,32,40,50,60,72,85,100,110,125,135], F:[6,10,13,16,20,25,30,36,43,50,56,62,68],
+  G:[2,4,5,6,7,9,10,12,14,15,17,18,20], H:[0,0,0,0,0,0,0,0,0,0,0,0,0],
+};
+
+/* ===================== APP STATE / RENDER SHELL ===================== */
+let state = { top:'fraesen' };
+function renderShell(){
+  $('appSub').textContent = t('sub');
+  $('langSwitch').querySelectorAll('button').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
+  const tabs = $('topTabs');
+  tabs.innerHTML = ['fraesen','drehen','bohren','gewinde','passung','info'].map(k=>
+    `<button data-v="${k}" class="${state.top===k?'active':''}">${t('tabs')[k]}</button>`).join('');
+  tabs.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{ state.top=b.dataset.v; renderShell(); render(); }));
+}
+$('langSwitch').querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+
+function render(){
+  const app = $('app');
+  if(state.top==='fraesen') app.innerHTML = viewFraesen();
+  else if(state.top==='drehen') app.innerHTML = viewDrehen();
+  else if(state.top==='bohren') app.innerHTML = viewBohren();
+  else if(state.top==='gewinde') app.innerHTML = viewGewinde();
+  else if(state.top==='passung') app.innerHTML = viewPassung();
+  else if(state.top==='info') app.innerHTML = viewInfo();
+  bindCurrentView();
+}
+
+/* ---------- FRÄSEN ---------- */
+// Internet-Quelle (nicht Tabellenbuch Metall) für Schruppen/Schlichten-ap beim Planfräsen mit
+// Wendeschneidplatten, mehrfach cross-validiert (Uddeholm Cutting Data Recommendations,
+// jlccnc.com Face Milling Guide, richconn.com Face Milling): Schruppen ap=2-5mm, Schlichten ap=0,2-1mm.
+const PLANFRAESEN_AP_INTERNET = { schruppen:[2,5], schlichten:[0.2,1], src:'Internet (Uddeholm/jlccnc/richconn Face-Milling-Richtwerte), nicht Tabellenbuch Metall' };
+
+const WERKZEUGMATERIAL_OPTIONS = ['Hartmetall','HSS beschichtet','HSS unbeschichtet'];
+// Welche Bearbeitungsarten passen zu welchem Werkzeugmaterial:
+function artsForMaterial(mat){
+  if(mat==='Hartmetall') return ['eckplan90','planAllg','kontur'];
+  return ['walzenstirn','kontur']; // HSS beschichtet/unbeschichtet
+}
+function werkzeugtypFor(art, mat){
+  if(art==='eckplan90') return 'HM-Wendeschneidplatten (90°-Eckfräser)';
+  if(art==='planAllg') return 'HM-Wendeschneidplatten (Igelfräser)';
+  if(art==='walzenstirn') return 'HSS-Walzenstirnfräser';
+  if(art==='kontur') return mat==='Hartmetall' ? 'VHM-Schaftfräser' : 'HSS-Schaftfräser';
+}
+let fraesenSel = { material:'Hartmetall', art:'eckplan90', matIdx:0, mode:'schruppen', D:10, z:4, konturD:12.0 };
+
+function viewFraesen(){
+  const mat = fraesenSel.material;
+  const availableArts = artsForMaterial(mat);
+  if(!availableArts.includes(fraesenSel.art)) fraesenSel.art = availableArts[0];
+  const art = fraesenSel.art;
+  const werkzeugtyp = werkzeugtypFor(art, mat);
+  const coating = mat==='HSS unbeschichtet' ? 'unbeschichtet' : 'beschichtet'; // für HSS; bei Hartmetall irrelevant (außer Kontur/VHM)
+  const vhmCoating = mat==='Hartmetall' ? 'beschichtet' : coating; // Kontur+Hartmetall nutzt VHM beschichtet (kein "HSS unbeschichtet" Fall hier)
+
+  let rows;
+  if(art==='eckplan90'||art==='planAllg'){ rows = FRAESEN_TABLES[art].rows; }
+  else if(art==='walzenstirn'){ rows = WALZENSTIRN_TABLE.rows; }
+  else { rows = (mat==='Hartmetall'?KONTUR_VHM:KONTUR_HSS).rows; }
+
+  const artLabels = {eckplan90:t('eckplan'), planAllg:t('planallg'), walzenstirn:t('walzenstirn'), kontur:t('kontur')};
+  const durchmesserField = art==='kontur'
+    ? `<label>${t('durchmesser')} <span class="req">${t('required')}</span></label>
+       <select id="konturDSel">${KONTUR_DCOLS.map(d=>`<option value="${d}" ${d==fraesenSel.konturD?'selected':''}>${d.toFixed(1)} mm</option>`).join('')}</select>
+       <div class="row2"><div><label>${t('schneiden')} <span class="req">${t('required')}</span></label><input type="number" id="zIn" value="${fraesenSel.z}" min="1" step="1"></div><div></div></div>`
+    : `<div class="row2">
+        <div><label>${t('durchmesser')} <span class="req">${t('required')}</span></label><input type="number" id="dIn" value="${fraesenSel.D}" min="0.1" step="0.1"></div>
+        <div><label>${t('schneiden')} <span class="req">${t('required')}</span></label><input type="number" id="zIn" value="${fraesenSel.z}" min="1" step="1"></div>
+      </div>`;
+
+  return `<div class="card">
+    <div class="cardTitle">${t('tabs').fraesen}</div>
+    <label>${t('werkzeugmaterial')} <span class="req">${t('required')}</span></label>
+    <select id="matTypeSel">${WERKZEUGMATERIAL_OPTIONS.map(m=>`<option value="${m}" ${m===mat?'selected':''}>${m}</option>`).join('')}</select>
+    <label>${t('bearbeitungsart')} <span class="req">${t('required')}</span></label>
+    <select id="artSel">${availableArts.map(a=>`<option value="${a}" ${a===art?'selected':''}>${artLabels[a]}</option>`).join('')}</select>
+    <label>Werkzeugtyp</label>
+    <select disabled><option>${werkzeugtyp}</option></select>
+    <label>${t('werkstoff')} <span class="req">${t('required')}</span></label>
+    <select id="matSel">${rows.map((r,i)=>`<option value="${i}" ${i==fraesenSel.matIdx?'selected':''}>${matName(r.g)} (${condName(r.c)})</option>`).join('')}</select>
+    <label>${t('bearbeitung')} <span class="req">${t('required')}</span></label>
+    <div class="segSwitch">
+      <button data-mode="schruppen" class="${fraesenSel.mode==='schruppen'?'active':''}">${t('schruppen')}</button>
+      <button data-mode="schlichten" class="${fraesenSel.mode==='schlichten'?'active':''}">${t('schlichten')}</button>
+    </div>
+    ${durchmesserField}
+  </div>
+  <div id="resultBox"></div>
+  <div class="note"><b>${t('dataSource')}:</b> ${art==='kontur' ? (mat==='Hartmetall'?KONTUR_VHM.src:KONTUR_HSS.src) : (art==='walzenstirn'?WALZENSTIRN_TABLE.src:FRAESEN_TABLES[art].src)}.${art==='kontur'?' D ist auf die 3 tabellierten Fräserdurchmesser beschränkt (4,0/12,0/20,0mm).':''}</div>`;
+}
+
+function calcFraesen(){
+  const mat = fraesenSel.material, art = fraesenSel.art;
+  const D = art==='kontur' ? fraesenSel.konturD : fraesenSel.D;
+  const z = fraesenSel.z;
+  let vc, fz, apInfo=null, aeInfo=null;
+
+  if(art==='eckplan90'||art==='planAllg'){
+    const row = FRAESEN_TABLES[art].rows[fraesenSel.matIdx];
+    vc = low(row.vc);
+    fz = low(fraesenSel.mode==='schruppen'?row.fzA:row.fzB);
+    const aeRange = FRAESEN_TABLES[art].aeModes; // informational only
+    aeInfo = fraesenSel.mode==='schruppen' ? {text: art==='eckplan90'?'(0,5…1,0)·d':'(0,4…0,3)·d', src:'Tabellenbuch'} : {text:'0,1·d', src:'Tabellenbuch'};
+    const apR = PLANFRAESEN_AP_INTERNET[fraesenSel.mode];
+    apInfo = {value: low(apR), src: PLANFRAESEN_AP_INTERNET.src, internet:true};
+  } else if(art==='walzenstirn'){
+    const row = WALZENSTIRN_TABLE.rows[fraesenSel.matIdx];
+    const coatKey = mat==='HSS unbeschichtet' ? 'unb' : 'besch';
+    const base = row[coatKey];
+    if(!base){ $('resultBox').innerHTML = `<div class="warnBox">${t('notSupported')}</div>`; return; }
+    vc = low(base);
+    fz = low(WALZENSTIRN_TABLE.fz[coatKey==='unb'?'unbeschichtet':'beschichtet']);
+    if(fraesenSel.mode==='schruppen'){ apInfo={value:0.2*D, src:'Tabellenbuch Metall S.360 (ap=0,2·d)'}; aeInfo={text:'0,75·d', src:'Tabellenbuch'}; }
+    else { apInfo={notAvailable:true}; aeInfo={notAvailable:true}; fz = fz*0.9; }
+  } else { // kontur
+    const dataset = mat==='Hartmetall' ? KONTUR_VHM : KONTUR_HSS;
+    const row = dataset.rows[fraesenSel.matIdx];
+    const colIdx = nearestCol(KONTUR_DCOLS, D);
+    const vcBase = fraesenSel.mode==='schruppen'? row.vcS : row.vcF;
+    const fzBase = fraesenSel.mode==='schruppen'? row.fzS : row.fzF;
+    const unbeschichtet = mat==='HSS unbeschichtet';
+    vc = low(vcBase) * (unbeschichtet? dataset.korrekturUnbeschichtet : 1);
+    fz = fzBase[colIdx];
+    if(mat==='Hartmetall'){ // VHM
+      apInfo = fraesenSel.mode==='schruppen' ? {value:1.0*D, src:'Tabellenbuch Metall S.363 (ap=1,0·d)'} : {value:1.5*D, src:'Tabellenbuch Metall S.363 (ap=1,5·d)'};
+    } else {
+      apInfo = {value:1.0*D, src:'Tabellenbuch Metall S.361 (ap=1,0·d)'};
+    }
+    aeInfo = fraesenSel.mode==='schruppen' ? {text:'0,5·d', src:'Tabellenbuch'} : {text:'0,1·d', src:'Tabellenbuch'};
+  }
+
+  const n = (vc*1000)/(Math.PI*D);
+  const vf = n*fz*z;
+  let html = `<div class="dro"><div class="droHead">${t('n')} / ${t('vc')} / ${t('vf')}</div><div class="droGrid">
+    <div class="droCell"><div class="k">n</div><div class="v">${fmt(n,0)}</div><div class="u">1/min</div></div>
+    <div class="droCell"><div class="k">vf</div><div class="v">${fmt(vf,0)}</div><div class="u">mm/min</div></div>
+    <div class="droCell"><div class="k">vc</div><div class="v">${fmt(vc,1)}</div><div class="u">m/min</div></div>
+    <div class="droCell"><div class="k">fz</div><div class="v">${fmt(fz,3)}</div><div class="u">mm</div></div>
+  </div>
+  <div class="droGrid" style="margin-top:10px;">
+    <div class="droCell">
+      <div class="k">ap</div>
+      ${apInfo && apInfo.notAvailable ? `<div class="v" style="font-size:12px;">${t('notSupported')}</div>` : `<div class="v">${fmt(apInfo.value,2)}</div><div class="u">mm</div>`}
+    </div>
+    <div class="droCell">
+      <div class="k">aₑ</div>
+      ${aeInfo && aeInfo.notAvailable ? `<div class="v" style="font-size:12px;">${t('notSupported')}</div>` : `<div class="v" style="font-size:16px;">${aeInfo.text}</div>`}
+    </div>
+  </div></div>`;
+  if(apInfo && apInfo.internet) html += `<div class="warnBox">ap-Wert aus Internetrecherche (${apInfo.src}) — nicht aus Tabellenbuch Metall, da dort für diese Bearbeitungsart kein ap angegeben ist.</div>`;
+  $('resultBox').innerHTML = html;
+}
+
+/* ---------- DREHEN ---------- */
+let drehenSel = { matIdx:0, art:'laengs', mode:'schruppen', tool:'HSS', D:30 };
+function viewDrehen(){
+  const table = drehenSel.tool==='HM' ? DREHEN_TABLE_HM : DREHEN_TABLE_HSS;
+  return `<div class="card">
+    <div class="cardTitle">${t('tabs').drehen} — ${table.src}</div>
+    <label>${t('werkstoff')} <span class="req">${t('required')}</span></label>
+    <select id="matSel">${table.rows.map((r,i)=>`<option value="${i}" ${i==drehenSel.matIdx?'selected':''}>${matName(r.g)} (${condName(r.c)})</option>`).join('')}</select>
+    <label>${t('bearbeitungsart')} <span class="req">${t('required')}</span></label>
+    <select id="artSel">
+      <option value="quer" ${drehenSel.art==='quer'?'selected':''}>${t('querplan')}</option>
+      <option value="laengs" ${drehenSel.art==='laengs'?'selected':''}>${t('laengs')}</option>
+      <option value="innen" ${drehenSel.art==='innen'?'selected':''}>${t('innen')}</option>
+      <option value="einstech" ${drehenSel.art==='einstech'?'selected':''}>${t('einstech')}</option>
+      <option value="gewindedrehen" ${drehenSel.art==='gewindedrehen'?'selected':''}>${t('gewindedrehen')}</option>
+    </select>
+    <label>${t('werkzeugmaterial')} <span class="req">${t('required')}</span></label>
+    <div class="segSwitch">
+      <button data-tool="HSS" class="${drehenSel.tool==='HSS'?'active':''}">HSS</button>
+      <button data-tool="HM" class="${drehenSel.tool==='HM'?'active':''}">Hartmetall (HM)</button>
+    </div>
+    <label>${t('bearbeitung')} <span class="req">${t('required')}</span></label>
+    <div class="segSwitch">
+      <button data-mode="schruppen" class="${drehenSel.mode==='schruppen'?'active':''}">${t('schruppen')}</button>
+      <button data-mode="schlichten" class="${drehenSel.mode==='schlichten'?'active':''}">${t('schlichten')}</button>
+    </div>
+    <label>${t('werkstueckDurchmesser')} <span class="req">${t('required')}</span></label>
+    <input type="number" id="dIn" value="${drehenSel.D}" min="0.1" step="0.1">
+  </div>
+  <div id="resultBox"></div>
+  <div class="note"><b>${t('dataSource')}:</b> ${table.src}.${drehenSel.art==='innen'?' Innendrehen verwendet dieselben vc-Werte wie Außen-/Längsdrehen (keine eigene Tabelle in der Quelle — vc hängt nur von Werkstoff/Werkzeug ab, nicht von Innen/Außen).':''}${drehenSel.tool==='HM'&&(drehenSel.art==='einstech'||drehenSel.art==='gewindedrehen')?' S.351.':''}${drehenSel.tool==='HSS'&&drehenSel.art==='gewindedrehen'?' Gewindedrehen ist für HSS in dieser Quelle nicht separat tabelliert.':''}</div>`;
+}
+function calcDrehen(){
+  const table = drehenSel.tool==='HM' ? DREHEN_TABLE_HM : DREHEN_TABLE_HSS;
+  const row = table.rows[drehenSel.matIdx];
+  const D = drehenSel.D;
+  const modeKey = drehenSel.mode==='schruppen' ? 'schrupp' : 'schlicht';
+  let vcArr, apR, fR;
+  if(drehenSel.art==='quer'){ vcArr = row.quer; apR = DREHEN_AP.quer; fR = DREHEN_F.quer; }
+  else if(drehenSel.art==='innen' || drehenSel.art==='laengs'){ vcArr = row[modeKey]; apR = DREHEN_AP[modeKey]; fR = DREHEN_F[modeKey]; }
+  else if(drehenSel.art==='einstech'){
+    vcArr = drehenSel.tool==='HM'? row.abstech : row.einstech;
+    apR = drehenSel.tool==='HM'? DREHEN_AP_HM.abstech : DREHEN_AP.einstech;
+    fR = drehenSel.tool==='HM'? DREHEN_F_HM.abstech : DREHEN_F.einstech;
+  } else if(drehenSel.art==='gewindedrehen'){
+    vcArr = drehenSel.tool==='HM'? row.gewinde : null;
+    apR = null; fR = null;
+  }
+  if(!vcArr){ $('resultBox').innerHTML = `<div class="warnBox">${t('notSupported')}</div>`; return; }
+  const vc = low(vcArr);
+  const n = (vc*1000)/(Math.PI*D);
+  $('resultBox').innerHTML = `<div class="dro"><div class="droHead">${t('n')} / ${t('vc')}</div><div class="droGrid">
+    <div class="droCell"><div class="k">n</div><div class="v">${fmt(n,0)}</div><div class="u">1/min</div></div>
+    <div class="droCell"><div class="k">vc</div><div class="v">${fmt(vc,0)}</div><div class="u">m/min</div></div>
+    ${apR?`<div class="droCell"><div class="k">ap</div><div class="v">${apR.join('…')}</div><div class="u">mm</div></div>`:''}
+    ${fR?`<div class="droCell"><div class="k">f</div><div class="v">${fR.join('…')}</div><div class="u">mm/U</div></div>`:''}
+  </div></div>`;
+}
+
+/* ---------- BOHREN ---------- */
+let bohrenSel = { art:'spiral', matIdx:0, tool:'HSS', coating:'beschichtet', D:10 };
+function viewBohren(){
+  const table = BOHREN_TABLES[bohrenSel.art];
+  let materialField = '';
+  if(table.mode==='family-coating'){
+    materialField = `<label>${t('werkzeugmaterial')} <span class="req">${t('required')}</span></label>
+    <div class="segSwitch">
+      <button data-tool="HSS" class="${bohrenSel.tool==='HSS'?'active':''}">${table.toolLabel.HSS}</button>
+      <button data-tool="HM" class="${bohrenSel.tool==='HM'?'active':''}">${table.toolLabel.HM}</button>
+    </div>
+    <div class="segSwitch">
+      <button data-coating="beschichtet" class="${bohrenSel.coating==='beschichtet'?'active':''}">beschichtet</button>
+      <button data-coating="unbeschichtet" class="${bohrenSel.coating==='unbeschichtet'?'active':''}">unbeschichtet (×0,7)</button>
+    </div>`;
+  } else if(table.mode==='coating-only'){
+    materialField = `<label>${t('werkzeugmaterial')} <span class="req">${t('required')}</span></label>
+    <select disabled><option>${table.fixedFamily}</option></select>
+    <div class="segSwitch">
+      <button data-coating="unbeschichtet" class="${bohrenSel.coating==='unbeschichtet'?'active':''}">unbeschichtet</button>
+      <button data-coating="beschichtet" class="${bohrenSel.coating==='beschichtet'?'active':''}">beschichtet</button>
+    </div>`;
+  } else { // family-only
+    materialField = `<label>${t('werkzeugmaterial')} <span class="req">${t('required')}</span></label>
+    <div class="segSwitch">
+      <button data-tool="HSS" class="${bohrenSel.tool==='HSS'?'active':''}">${table.toolLabel.HSS}</button>
+      <button data-tool="HM" class="${bohrenSel.tool==='HM'?'active':''}">${table.toolLabel.HM}</button>
+    </div>`;
+  }
+  return `<div class="card">
+    <div class="cardTitle">${t('tabs').bohren} — ${table.src}</div>
+    <label>${t('werkstoff')} <span class="req">${t('required')}</span></label>
+    <select id="matSel">${table.rows.map((r,i)=>`<option value="${i}" ${i==bohrenSel.matIdx?'selected':''}>${matName(r.g)} (${condName(r.c)})</option>`).join('')}</select>
+    <label>${t('bohrverfahren')} <span class="req">${t('required')}</span></label>
+    <select id="artSel">
+      <option value="spiral" ${bohrenSel.art==='spiral'?'selected':''}>${t('spiral')}</option>
+      <option value="anbohren" ${bohrenSel.art==='anbohren'?'selected':''}>${t('anbohren')}</option>
+      <option value="tiefloch" ${bohrenSel.art==='tiefloch'?'selected':''}>${t('tiefloch')}</option>
+      <option value="reiben" ${bohrenSel.art==='reiben'?'selected':''}>${t('reiben')}</option>
+      <option value="kegelsenken" ${bohrenSel.art==='kegelsenken'?'selected':''}>${t('kegelsenken')}</option>
+    </select>
+    ${materialField}
+    <label>${t('bohrerDurchmesser')} <span class="req">${t('required')}</span></label>
+    <input type="number" id="dIn" value="${bohrenSel.D}" min="0.1" step="0.1">
+  </div>
+  <div id="resultBox"></div>
+  <div class="note"><b>${t('dataSource')}:</b> ${table.src}.${table.mode==='family-coating'?' "unbeschichtet" = 70% von vc (Fußnote S.370).':''}${table.mode==='family-only'?' Beide Spalten sind bereits unbeschichtet — keine beschichtete Variante in der Quelle.':''}</div>`;
+}
+function nearestCol(dCols, D){ let idx=0,best=Infinity; dCols.forEach((c,i)=>{const d=Math.abs(c-D); if(d<best){best=d;idx=i;}}); return idx; }
+function calcBohren(){
+  const table = BOHREN_TABLES[bohrenSel.art];
+  const row = table.rows[bohrenSel.matIdx];
+  const D = bohrenSel.D;
+  let vc;
+  if(table.mode==='family-coating'){
+    const base = bohrenSel.tool==='HM'? row.vcHM : row.vcHSS;
+    if(!base){ $('resultBox').innerHTML = `<div class="warnBox">${t('notSupported')}</div>`; return; }
+    vc = low(base) * (bohrenSel.coating==='unbeschichtet'? UNBESCHICHTET_FAKTOR : 1);
+  } else if(table.mode==='coating-only'){
+    const base = bohrenSel.coating==='unbeschichtet'? row.vcUnb : row.vcBesch;
+    vc = low(base);
+  } else {
+    const base = bohrenSel.tool==='HM'? row.vcHM : row.vcHSS;
+    vc = low(base);
+  }
+  const n = (vc*1000)/(Math.PI*D);
+  const fIdx = nearestCol(table.dCols, D);
+  const f = row.f[fIdx];
+  $('resultBox').innerHTML = `<div class="dro"><div class="droHead">${t('n')} / ${t('vc')}</div><div class="droGrid">
+    <div class="droCell"><div class="k">n</div><div class="v">${fmt(n,0)}</div><div class="u">1/min</div></div>
+    <div class="droCell"><div class="k">vc</div><div class="v">${fmt(vc,1)}</div><div class="u">m/min</div></div>
+    <div class="droCell" style="grid-column:1/3;"><div class="k">f</div><div class="v">${f}</div><div class="u">mm/U (d=${table.dCols[fIdx]}mm)</div></div>
+  </div></div>`;
+}
+
+/* ---------- GEWINDE ---------- */
+function viewGewinde(){
+  return `<div class="card">
+    <div class="cardTitle">${t('tabs').gewinde} — ${t('regelgewinde')}</div>
+    <label>${t('gewindegroesse')} <span class="req">${t('required')}</span></label>
+    <select id="mSel">${KERNLOCH_DIN13.map(k=>`<option value="${k.m}">${k.m}</option>`).join('')}</select>
+  </div>
+  <div id="resultBox"></div>`;
+}
+function calcGewinde(){
+  const k = KERNLOCH_DIN13.find(x=>x.m===$('mSel').value);
+  $('resultBox').innerHTML = `<div class="dro"><div class="droHead">${t('kernloch')}</div><div class="droGrid">
+    <div class="droCell" style="grid-column:1/3;"><div class="k">${k.m}</div><div class="v">Ø ${k.d}</div><div class="u">mm [DIN 13-1]</div></div>
+  </div></div>`;
+}
+
+/* ---------- PASSUNG ---------- */
+let passungSel = { nenn:12, letter:'H', it:7, typ:'bohrung' };
+const HOLE_LETTERS = ['H','G','F','E','D','C'];
+const SHAFT_LETTERS = ['h','g','f','e','d','c','k','m','n','p','r','s'];
+function viewPassung(){
+  const isHole = passungSel.typ==='bohrung';
+  const letters = isHole? HOLE_LETTERS : SHAFT_LETTERS;
+  return `<div class="card">
+    <div class="cardTitle">${t('tabs').passung} — Tabellenbuch Metall S.90-92</div>
+    <label>${t('typ')} <span class="req">${t('required')}</span></label>
+    <div class="segSwitch">
+      <button data-typ="bohrung" class="${passungSel.typ==='bohrung'?'active':''}">${t('bohrung')}</button>
+      <button data-typ="welle" class="${passungSel.typ==='welle'?'active':''}">${t('welle')}</button>
+    </div>
+    <label>${t('nennmass')} (mm) <span class="req">${t('required')}</span></label>
+    <input type="number" id="nennIn" value="${passungSel.nenn}" min="0.1" step="0.1">
+    <div class="row2">
+      <div><label>${t('toleranzbuchstabe')} <span class="req">${t('required')}</span></label>
+        <select id="letterSel">${letters.map(l=>`<option value="${l}" ${l===passungSel.letter?'selected':''}>${l}</option>`).join('')}</select></div>
+      <div><label>${t('itstufe')} <span class="req">${t('required')}</span></label>
+        <select id="itSel">${[5,6,7,8,9,10,11].map(g=>`<option value="${g}" ${g==passungSel.it?'selected':''}>IT${g}</option>`).join('')}</select></div>
+    </div>
+  </div>
+  <div id="resultBox"></div>`;
+}
+function rangeIdxForNenn(n){ const b=[3,6,10,18,30,50,80,120,180,250,315,400,500]; for(let i=0;i<b.length;i++){ if(n<=b[i]) return i; } return -1; }
+function grund(isHole, letter, idx, itIdx){
+  const IT = GRUNDTOLERANZEN[IT_RANGES[idx]][itIdx-1];
+  if(letter==='h'||letter==='H') return isHole? {EI:0,ES:IT} : {ei:-IT,es:0};
+  const table = isHole? BOHRUNG_ABMASS : WELLE_ABMASS;
+  const arr = table[letter]; if(!arr) return null;
+  const dev = arr[idx];
+  if(isHole){ return {EI:dev, ES:dev+IT}; }
+  if(['c','d','e','f','g'].includes(letter)){ return {es:dev, ei:dev-IT}; }
+  return {ei:dev, es:dev+IT};
+}
+function calcPassung(){
+  const n = passungSel.nenn;
+  const idx = rangeIdxForNenn(n);
+  if(idx<0){ $('resultBox').innerHTML = `<div class="warnBox">${t('outOfRange')}</div>`; return; }
+  const isHole = passungSel.typ==='bohrung';
+  const res = grund(isHole, passungSel.letter, idx, passungSel.it);
+  if(!res){ $('resultBox').innerHTML = `<div class="warnBox">${t('notSupported')}</div>`; return; }
+  const lower = isHole? res.EI : res.ei, upper = isHole? res.ES : res.es;
+  const dmin = n+lower/1000, dmax = n+upper/1000;
+  $('resultBox').innerHTML = `<table class="resultTable">
+    <tr><td class="k">${t('nennmass')}</td><td class="v">${n.toFixed(3)} mm</td></tr>
+    <tr><td class="k">${t('unteresAbmass')}</td><td class="v">${(lower>=0?'+':'')+lower} µm</td></tr>
+    <tr><td class="k">${t('oberesAbmass')}</td><td class="v">${(upper>=0?'+':'')+upper} µm</td></tr>
+    <tr><td class="k">${t('mindestmass')}</td><td class="v">${dmin.toFixed(3)} mm</td></tr>
+    <tr><td class="k">${t('hoechstmass')}</td><td class="v">${dmax.toFixed(3)} mm</td></tr>
+    <tr><td class="k">${t('toleranz')} IT${passungSel.it}</td><td class="v">${upper-lower} µm</td></tr>
+  </table>`;
+}
+
+/* ---------- INFO ---------- */
+function viewInfo(){
+  return `<div class="infoCard">
+    <div class="cardTitle" style="text-align:center;">${t('infoTitle')}</div>
+    <p>${t('infoText')}</p>
+    <div class="dev">${t('infoDev')}: Guettouchi Islem</div>
+    <p style="margin-top:14px;font-size:11px;">${t('dataSource')}: Tabellenbuch Metall, Europa-Lehrmittel (Europa-Nr. 10609, ISBN 978-3-7585-1471-5) &middot; DIN 13-1 [Internet]</p>
+  </div>`;
+}
+
+/* ---------- BINDINGS ---------- */
+function bindCurrentView(){
+  if(state.top==='fraesen'){
+    $('matTypeSel').addEventListener('change', e=>{fraesenSel.material=e.target.value; fraesenSel.matIdx=0; render();});
+    $('artSel').addEventListener('change', e=>{fraesenSel.art=e.target.value; fraesenSel.matIdx=0; render();});
+    $('matSel').addEventListener('change', e=>{fraesenSel.matIdx=+e.target.value; calcFraesen();});
+    document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{fraesenSel.mode=b.dataset.mode; render(); calcFraesen();}));
+    if($('dIn')) $('dIn').addEventListener('input', e=>{fraesenSel.D=+e.target.value||10; calcFraesen();});
+    if($('konturDSel')) $('konturDSel').addEventListener('change', e=>{fraesenSel.konturD=+e.target.value; calcFraesen();});
+    $('zIn').addEventListener('input', e=>{fraesenSel.z=+e.target.value||4; calcFraesen();});
+    calcFraesen();
+  } else if(state.top==='drehen'){
+    $('matSel').addEventListener('change', e=>{drehenSel.matIdx=+e.target.value; calcDrehen();});
+    $('artSel').addEventListener('change', e=>{drehenSel.art=e.target.value; calcDrehen();});
+    document.querySelectorAll('[data-tool]').forEach(b=>b.addEventListener('click',()=>{drehenSel.tool=b.dataset.tool; drehenSel.matIdx=0; render();}));
+    document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{drehenSel.mode=b.dataset.mode; render(); calcDrehen();}));
+    $('dIn').addEventListener('input', e=>{drehenSel.D=+e.target.value||30; calcDrehen();});
+    calcDrehen();
+  } else if(state.top==='bohren'){
+    $('matSel').addEventListener('change', e=>{bohrenSel.matIdx=+e.target.value; calcBohren();});
+    $('artSel').addEventListener('change', e=>{bohrenSel.art=e.target.value; bohrenSel.matIdx=0; bohrenSel.coating = (e.target.value==='tiefloch'||e.target.value==='kegelsenken')?'unbeschichtet':'beschichtet'; render();});
+    document.querySelectorAll('[data-tool]').forEach(b=>b.addEventListener('click',()=>{bohrenSel.tool=b.dataset.tool; render(); calcBohren();}));
+    document.querySelectorAll('[data-coating]').forEach(b=>b.addEventListener('click',()=>{bohrenSel.coating=b.dataset.coating; render(); calcBohren();}));
+    $('dIn').addEventListener('input', e=>{bohrenSel.D=+e.target.value||10; calcBohren();});
+    calcBohren();
+  } else if(state.top==='gewinde'){
+    $('mSel').addEventListener('change', calcGewinde);
+    calcGewinde();
+  } else if(state.top==='passung'){
+    document.querySelectorAll('[data-typ]').forEach(b=>b.addEventListener('click',()=>{passungSel.typ=b.dataset.typ; passungSel.letter = passungSel.typ==='bohrung'?'H':'h'; render(); calcPassung();}));
+    $('nennIn').addEventListener('input', e=>{passungSel.nenn=+e.target.value||0; calcPassung();});
+    $('letterSel').addEventListener('change', e=>{passungSel.letter=e.target.value; calcPassung();});
+    $('itSel').addEventListener('change', e=>{passungSel.it=+e.target.value; calcPassung();});
+    calcPassung();
+  }
+}
+
+renderShell();
+render();
+</script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
